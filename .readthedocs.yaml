@@ -5,14 +5,9 @@ build:
   tools:
     python: "3.12"
 
-# This section tells RTD exactly what to install before building
 python:
   install:
-    - method: pip
-      packages:
-        - sphinx
-        - sphinx-rtd-theme
+    - requirements: requirements.txt
 
-# Tell Sphinx where your conf.py is
 sphinx:
   configuration: source/conf.py
