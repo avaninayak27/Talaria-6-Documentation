@@ -1,7 +1,3 @@
-# .readthedocs.yaml
-# Read the Docs configuration file
-# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
-
 version: 2
 
 build:
@@ -9,16 +5,14 @@ build:
   tools:
     python: "3.12"
 
+# This section tells RTD exactly what to install before building
 python:
   install:
     - method: pip
-      requirements: [] # We will put the theme here
-    - requirements: ""
+      packages:
+        - sphinx
+        - sphinx-rtd-theme
 
 # Tell Sphinx where your conf.py is
 sphinx:
   configuration: source/conf.py
-
-# Install dependencies
-pre_install:
-  - pip install sphinx sphinx-rtd-theme
