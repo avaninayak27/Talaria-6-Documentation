@@ -33,7 +33,7 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 html_theme_options = {
-    'display_version': True,      # Keeps the version number
+    #'display_version': True,      # Keeps the version number
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
     # These two lines hide the "View page source" and GitHub links
