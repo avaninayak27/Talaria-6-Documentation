@@ -10,6 +10,7 @@ Welcome to the technical documentation for the **Talaria-6 (T6)**, the world's l
    introduction
    getting-started
    hardware-specs
+   Green Tea Studio
 
 Introduction
 ------------
@@ -19,3 +20,4 @@ Key Features:
 * **Low Power**: Up to 50% less power consumption compared to competitors.
 * **Integrated Stack**: Full Wi-Fi and Bluetooth LE stack.
 * **Small Footprint**: Ideal for wearables and smart home sensors.
+
