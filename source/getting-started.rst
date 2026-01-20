@@ -1,4 +1,4 @@
-Getting Started
+Getting Started With Talaria 6
 ===============
 
 Follow this guide to set up your Talaria-6 Evaluation Kit (EVK).
