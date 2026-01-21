@@ -12,6 +12,7 @@ Welcome to the technical documentation for the **Talaria-6 (T6)**, the world's l
    hardware-specs
    hardware-specs copy
    Green Tea Studio
+   Green Tea Studio Key Features
 
 Introduction
 ------------
