@@ -32,6 +32,15 @@ exclude_patterns = []
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
+# Add custom CSS and JS files
+html_css_files = [
+    'sidebar-filters.css',
+]
+
+html_js_files = [
+    'sidebar-filters.js',
+]
+
 html_theme_options = {
     #'display_version': True,      # Keeps the version number
     'prev_next_buttons_location': 'bottom',
