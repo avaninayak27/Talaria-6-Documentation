@@ -37,9 +37,9 @@
 
         console.log('[sidebar-filters] Initializing...');
 
-        // Create and insert filter UI
+        // Create and insert filter UI at the bottom
         const filterContainer = createFilterContainer();
-        menu.insertBefore(filterContainer, menu.firstChild);
+        menu.appendChild(filterContainer);
 
         // Tag all TOC items
         tagTocItems();
