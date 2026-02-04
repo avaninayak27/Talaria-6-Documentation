@@ -9,21 +9,30 @@
     // Topic definitions
     const topics = {
         'all': 'All Topics',
-        'getting-started': 'Getting Started',
         'hardware': 'Hardware',
         'software': 'Software',
-        'development': 'Development'
+        'api': 'API Documents',
+        'release-notes': 'Release Notes',
+        'host-app-notes': 'Host Application Notes',
+        'quick-ref': 'Quick Reference Guide'
     };
 
     // Map document names to topics (normalized to lowercase)
     const docTopicMap = {
         'index': ['all'],
-        'introduction': ['all', 'getting-started'],
-        'getting-started': ['all', 'getting-started', 'software'],
+        'introduction': ['all', 'software'],
+        'getting-started': ['all', 'software'],
         'hardware-specs': ['all', 'hardware'],
         'hardware-specs copy': ['all', 'hardware'],
-        'green tea studio': ['all', 'software', 'development'],
-        'green tea studio key features': ['all', 'software', 'development']
+        'green tea studio': ['all', 'software'],
+        'green tea studio key features': ['all', 'software'],
+        'api-reference': ['all', 'api'],
+        'api-documents': ['all', 'api'],
+        'release-notes': ['all', 'release-notes'],
+        'host-application-notes': ['all', 'host-app-notes'],
+        'application-notes': ['all', 'host-app-notes'],
+        'quick-reference': ['all', 'quick-ref'],
+        'quick-reference-guide': ['all', 'quick-ref']
     };
 
     // Initialize filters when DOM is ready
@@ -58,30 +67,26 @@
         const container = document.createElement('div');
         container.className = 'sidebar-filters';
         
-        const title = document.createElement('span');
-        title.className = 'sidebar-filters-title';
-        title.textContent = 'Filter Topics';
-        container.appendChild(title);
+        const label = document.createElement('label');
+        label.className = 'sidebar-filters-label';
+        label.textContent = 'Filter Topics: ';
+        container.appendChild(label);
 
-        const tabs = document.createElement('ul');
-        tabs.className = 'filter-tabs';
+        // Create select dropdown
+        const select = document.createElement('select');
+        select.className = 'sidebar-filters-select';
+        select.id = 'topic-filter-select';
 
-        // Add all topic buttons
+        // Add options
         Object.entries(topics).forEach(([key, label], index) => {
-            const li = document.createElement('li');
-            li.className = 'filter-tab';
-            
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.dataset.topic = key;
-            button.textContent = label;
-            if (index === 0) button.classList.add('active');
-            
-            li.appendChild(button);
-            tabs.appendChild(li);
+            const option = document.createElement('option');
+            option.value = key;
+            option.textContent = label;
+            if (index === 0) option.selected = true;
+            select.appendChild(option);
         });
 
-        container.appendChild(tabs);
+        container.appendChild(select);
         return container;
     }
 
@@ -140,25 +145,22 @@
 
     // Setup filter button listeners
     function setupFilterListeners() {
-        const buttons = document.querySelectorAll('.filter-tab button');
+        const select = document.querySelector('#topic-filter-select');
+        if (!select) {
+            console.warn('[sidebar-filters] Select element not found');
+            return;
+        }
         
-        buttons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const topic = this.dataset.topic;
-                
-                console.log('[sidebar-filters] Filter clicked: ' + topic);
-                
-                // Update active button
-                buttons.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Filter items
-                filterByTopic(topic);
-                
-                // Save preference
-                localStorage.setItem('sphinx-topic-filter', topic);
-            });
+        select.addEventListener('change', function(e) {
+            const topic = this.value;
+            
+            console.log('[sidebar-filters] Filter changed: ' + topic);
+            
+            // Filter items
+            filterByTopic(topic);
+            
+            // Save preference
+            localStorage.setItem('sphinx-topic-filter', topic);
         });
     }
 
@@ -185,11 +187,12 @@
     // Apply saved filter on page load
     function applySavedFilter() {
         const savedTopic = localStorage.getItem('sphinx-topic-filter') || 'all';
-        const button = document.querySelector(`.filter-tab button[data-topic="${savedTopic}"]`);
+        const select = document.querySelector('#topic-filter-select');
         
-        if (button) {
+        if (select) {
             console.log('[sidebar-filters] Applying saved filter: ' + savedTopic);
-            button.click();
+            select.value = savedTopic;
+            filterByTopic(savedTopic);
         }
     }
 
