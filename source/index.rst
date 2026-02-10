@@ -8,6 +8,7 @@ Welcome to the technical documentation for the **Talaria-6 (T6)**, the world's l
    :caption: Getting Started
    
    getting-started
+   quick-reference-guide
    api-reference
    hardware-specs
    api-guides
