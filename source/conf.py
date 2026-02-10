@@ -32,6 +32,9 @@ exclude_patterns = []
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
+# Set the canonical URL for the documentation
+# html_baseurl = 'https://docs.yourdomain.com/'
+
 # Add custom CSS and JS files
 html_css_files = [
     'sidebar-filters.css',
