@@ -7,12 +7,21 @@ Welcome to the technical documentation for the **Talaria-6 (T6)**, the world's l
    :maxdepth: 2
    :caption: Getting Started
    
-   introduction
    getting-started
+   api-reference
    hardware-specs
-   hardware-specs copy
-   Green Tea Studio
-   Green Tea Studio Key Features
+   api-guides
+   security-guides
+   migration-guides
+   libraries-and-frameworks
+   host-application-notes
+   download-tools
+   contributions-guide
+   sdk-versions
+   release-notes
+   resources
+   copyrights-and-licenses
+   about
    custom-domain
 
 Introduction
